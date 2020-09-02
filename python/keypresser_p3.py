@@ -35,7 +35,7 @@ def on_press(key):
                 ser.write("gpio set 4\r".encode())
             else:
                 ser.write("gpio clear 4\r".encode())
-        switch0 = not switch0
+            switch0 = not switch0
         elif (key.char == '6'):
             if(switch1 == False):
                 ser.write("gpio set 5\r".encode())
