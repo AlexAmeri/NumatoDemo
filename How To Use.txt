@@ -1,0 +1,65 @@
+Welcome to the 2020 Embedded 2 Virtual Lab!
+
+
+
+TO DEPLOY THE SAMPLE PROJECT: -------------------------------------------------------------------------------
+1. Using Vivado, open the "numato_reader_example". An error may be thrown regarding the 
+DDR, for this sample project it is safe to ignore this.
+
+2. Click File->Launch SDK . Answer "Yes" to all prompts and leave default options. If the SDK won't start, see the below instructions.
+
+3. Click on "Program FPGA" Button in the top button pannel (The red arrow and green blocks image)
+
+4. Right-Click on the numato_read project in the Project Explorer. Click Run As -> Launch on Hardware (GDB)
+
+5. The bitfile and software application are now running on the board. Go to the "TO RUN THE UTILITY" Instructions.
+
+
+
+
+IF THE SDK WON'T START --------------------------------------------------------------------------------------
+
+1. Navigate to project_root/numato_reader_example.sdk , and open a terminal here
+2. Type rm -R .metadata
+
+3. Go back to Vivado:
+	A. Click File-> Export Hardware, click "Yes" to all prompts, include the bitstream, and leave all options default.
+	B. Click File-> Launch SDK, click "Yes" to all prompts and leave all options default.
+
+4. In the SDK:
+	A. File->New->Application Project
+	B. Name the project "numato_read_backup", leave everything else default, click Next
+	C. Select the "Hello World" template and click finish
+
+5. In a seperate text editor, open the file project_root/numato_reader_example.sdk/numato_read/src/helloworld.c
+6. Copy the contents of this file into project_root/numato_reader_example.sdk/numato_read_backup/src/helloworld.c
+7. Save the project
+8. Click on "Program FPGA" Button in the top button pannel (The red arrow and green blocks image)
+9. Right-Click on the numato_read_backup project in the Project Explorer. Click Run As -> Launch on Hardware (GDB)
+10. The bitfile and software application are now running on the board. Go to the "TO RUN THE UTILITY" Instructions.
+
+
+
+TO RUN THE UTILITY: -----------------------------------------------------------------------------------------
+
+In order to "virtually" press buttons and throw switches on our lab Zybo boards,
+please do the following:
+
+
+1. Navigate to the python/ directory in this project folder
+2. Open a terminal, and type:
+	
+	sh virtual_buttons_and_switches_python3.sh
+   
+
+3. Pressing keys 1 through 4 will drive some of the Zybo board pins active high for
+   100 milliseconds. Pressing keys 5 through 8 will toggle some other pins active high or
+   low.
+
+The "Buttons" are connected to the top row of the JA Header on the Zybo board.
+The "Switches" are connected to the bottom row of the JA Header on the Zybo board.
+
+4. For ece40 and ece39, you can use the webcam to look at the board, to see the flashing LEDS.
+	A. Open a new terminal and type "vlc"
+	B. Media->open capture device. For some computers it will be /dev/video0, others it is /dev/video1, you'll have to try both.
+
