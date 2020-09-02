@@ -11,49 +11,51 @@ switch3 = False
 def on_press(key):
     global switch0, switch1, switch2, switch3
     #Buttons
-    if (key.char == '1'):
-        ser.write("gpio set 0\r".encode())
-        time.sleep(0.1)
-        ser.write("gpio clear 0\r".encode())
-    elif (key.char == '2'):
-        ser.write("gpio set 1\r".encode())
-        time.sleep(0.1)
-        ser.write("gpio clear 1\r".encode())
-    elif (key.char == '3'):
-        ser.write("gpio set 2\r".encode())
-        time.sleep(0.1)
-        ser.write("gpio clear 2\r".encode())
-    elif (key.char == '4'):
-        ser.write("gpio set 3\r".encode())
-        time.sleep(0.1)
-        ser.write("gpio clear 3\r".encode())
+    try:
+        if (key.char == '1'):
+            ser.write("gpio set 0\r".encode())
+            time.sleep(0.1)
+            ser.write("gpio clear 0\r".encode())
+        elif (key.char == '2'):
+            ser.write("gpio set 1\r".encode())
+            time.sleep(0.1)
+            ser.write("gpio clear 1\r".encode())
+        elif (key.char == '3'):
+            ser.write("gpio set 2\r".encode())
+            time.sleep(0.1)
+            ser.write("gpio clear 2\r".encode())
+        elif (key.char == '4'):
+            ser.write("gpio set 3\r".encode())
+            time.sleep(0.1)
+            ser.write("gpio clear 3\r".encode())
         
     #Switches
-    elif (key.char == '5'):
-        if(switch0 == False):
-            ser.write("gpio set 4\r".encode())
-        else:
-            ser.write("gpio clear 4\r".encode())
+        elif (key.char == '5'):
+            if(switch0 == False):
+                ser.write("gpio set 4\r".encode())
+            else:
+                ser.write("gpio clear 4\r".encode())
         switch0 = not switch0
-    elif (key.char == '6'):
-        if(switch1 == False):
-            ser.write("gpio set 5\r".encode())
-        else:
-            ser.write("gpio clear 5\r".encode())
-        switch1 = not switch1
-    elif (key.char == '7'):
-        if(switch2 == False):
-            ser.write("gpio set 6\r".encode())
-        else:
-            ser.write("gpio clear 6\r".encode())
-        switch2 = not switch2
-    elif (key.char == '8'):
-        if(switch3 == False):
-            ser.write("gpio set 7\r".encode())
-        else:
-            ser.write("gpio clear 7\r".encode())
-        switch3 = not switch3
-        
+        elif (key.char == '6'):
+            if(switch1 == False):
+                ser.write("gpio set 5\r".encode())
+            else:
+                ser.write("gpio clear 5\r".encode())
+            switch1 = not switch1
+        elif (key.char == '7'):
+            if(switch2 == False):
+                ser.write("gpio set 6\r".encode())
+            else:
+                ser.write("gpio clear 6\r".encode())
+            switch2 = not switch2
+        elif (key.char == '8'):
+            if(switch3 == False):
+                ser.write("gpio set 7\r".encode())
+            else:
+                ser.write("gpio clear 7\r".encode())
+            switch3 = not switch3
+    except:
+       pass 
 
 #Start the COM port
 print ('Starting COM port')
