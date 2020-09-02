@@ -3,7 +3,7 @@ Welcome to the 2020 Embedded 2 Virtual Lab!
 
 
 TO DEPLOY THE SAMPLE PROJECT: -------------------------------------------------------------------------------
-1. Using Vivado, open the "numato_reader_example". An error may be thrown regarding the 
+1. Using Vivado, open the "numato_reader_example.xpr" project. An error may be thrown regarding the 
 DDR, for this sample project it is safe to ignore this.
 
 2. Click File->Launch SDK . Answer "Yes" to all prompts and leave default options. If the SDK won't start, see the below instructions.
@@ -33,6 +33,7 @@ IF THE SDK WON'T START ---------------------------------------------------------
 
 5. In a seperate text editor, open the file project_root/numato_reader_example.sdk/numato_read/src/helloworld.c
 6. Copy the contents of this file into project_root/numato_reader_example.sdk/numato_read_backup/src/helloworld.c
+   (after deleting the file's original contents)
 7. Save the project
 8. Click on "Program FPGA" Button in the top button pannel (The red arrow and green blocks image)
 9. Right-Click on the numato_read_backup project in the Project Explorer. Click Run As -> Launch on Hardware (GDB)
@@ -45,8 +46,11 @@ TO RUN THE UTILITY: ------------------------------------------------------------
 In order to "virtually" press buttons and throw switches on our lab Zybo boards,
 please do the following:
 
+0. For ece40 and ece39, you can use the webcam to look at the board, to see the flashing LEDS.
+	A. Open a new terminal and type "vlc"
+	B. Media->open capture device. For some computers it will be /dev/video0, others it is /dev/video1, you'll have to try both.
 
-1. Navigate to the python/ directory in this project folder
+1. Navigate to the python/ directory in the project root
 2. Open a terminal, and type:
 	
 	sh virtual_buttons_and_switches_python3.sh
@@ -59,7 +63,5 @@ please do the following:
 The "Buttons" are connected to the top row of the JA Header on the Zybo board.
 The "Switches" are connected to the bottom row of the JA Header on the Zybo board.
 
-4. For ece40 and ece39, you can use the webcam to look at the board, to see the flashing LEDS.
-	A. Open a new terminal and type "vlc"
-	B. Media->open capture device. For some computers it will be /dev/video0, others it is /dev/video1, you'll have to try both.
+
 
